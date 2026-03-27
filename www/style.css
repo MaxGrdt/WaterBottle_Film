@@ -1,0 +1,247 @@
+/* ============================================================
+   style.css — Styles compilés WaterBottle Film
+   Architecture identique à Ermitage Record
+   ============================================================ */
+@charset "UTF-8";
+
+/* ----- Classes utilitaires de typographie ----- */
+.fontwhite {
+  font-family: Futura, sans-serif;
+  color: white;
+}
+
+.fontblack {
+  font-family: Futura, sans-serif;
+  color: black;
+}
+
+.texte {
+  text-align: justify;
+  text-decoration: none;
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+/* ----- Empêcher le scroll horizontal ----- */
+html, body {
+  overflow-x: hidden;
+}
+
+/* ----- Liens de navigation ----- */
+ul li a {
+  text-decoration: none;
+}
+ul li a.active {
+  font-weight: bold;
+}
+
+/* ----- Animation items navbar (soulignement du centre + grisement) ----- */
+nav ul li a {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background: currentColor;
+  transition: left 0.4s ease, right 0.4s ease;
+}
+nav ul li a:hover::after {
+  left: 0;
+  right: 0;
+}
+nav ul li a:hover {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ----- Vidéo hero plein écran ----- */
+.hero-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.hero-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-video-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  pointer-events: none;
+}
+
+/* ----- Bouton son / muet (vidéo hero) ----- */
+.btn-mute {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 1.4rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.15s ease;
+}
+.btn-mute:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* ----- Section À propos ----- */
+#a-propos {
+  scroll-margin-top: 66px;
+}
+.about-section .about-img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ----- Section Portfolio (vidéos verticales) ----- */
+.portfolio-grid .video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #111;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.portfolio-grid .video-card video {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+.portfolio-grid .video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* ----- Tooltip ----- */
+.tooltip-inner {
+  font-family: Futura, sans-serif;
+}
+
+/* ----- Boutons (animation au survol) ----- */
+.btn {
+  transition: transform 0.1s, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ----- Icônes réseaux sociaux (footer) ----- */
+footer a .bi-instagram,
+footer a .bi-linkedin {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+footer a:hover .bi-instagram,
+footer a:hover .bi-linkedin {
+  transform: scale(1.15);
+}
+
+/* ----- Logo navbar (animation au survol) ----- */
+nav > div > div:first-child > a {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+nav > div > div:first-child > a:hover {
+  transform: scale(1.05);
+}
+
+/* ----- Champs de formulaire (animation focus) ----- */
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea.form-control {
+  transition: border-width 0.2s ease;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+textarea.form-control:focus {
+  border-width: 3px;
+  border-color: #007bff;
+}
+
+/* ----- Validation email (style erreur après interaction) ----- */
+input[type=email].touched:not(:focus):invalid {
+  background: #b20a37;
+  border: 2px solid #b20a37;
+  color: #fff;
+  animation: headshake 100ms cubic-bezier(0.4, 0.1, 0.6, 0.9);
+  animation-iteration-count: 2;
+}
+
+@keyframes headshake {
+  25% {
+    transform: translateX(1%);
+  }
+  75% {
+    transform: translateX(-1%);
+  }
+}
+
+/* ----- Google Maps (angles arrondis) ----- */
+.ratio.ratio-16x9 {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ----- Animation fade-in au scroll (Intersection Observer) ----- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----- Animation slide-in depuis la gauche ----- */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ----- Animation slide-in depuis la droite ----- */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+body {
+    padding-top: 70px; /* adapte à la hauteur réelle de ta navbar */
+}
