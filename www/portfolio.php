@@ -50,8 +50,8 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
                 <!-- Vidéo 1 : Aftermovie -->
                 <div class="col-12 col-md-4 fade-in">
                     <div class="video-card">
-                        <video controls preload="metadata" playsinline>
-                            <source src="media/aftermovie_ny.MP4" type="video/mp4">
+                        <video controls preload="none" playsinline>
+                            <source src="media/aftermovie_ny.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture vidéo.
                         </video>
                     </div>
@@ -60,7 +60,7 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
                 <!-- Vidéo 2 : Boiler -->
                 <div class="col-12 col-md-4 fade-in">
                     <div class="video-card">
-                        <video controls preload="metadata" playsinline>
+                        <video controls preload="none" playsinline>
                             <source src="media/baurech.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture vidéo.
                         </video>
@@ -70,7 +70,7 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
                 <!-- Vidéo 3 : Maroc -->
                 <div class="col-12 col-md-4 fade-in">
                     <div class="video-card">
-                        <video controls preload="metadata" playsinline>
+                        <video controls preload="none" playsinline>
                             <source src="media/boiler.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture vidéo.
                         </video>
@@ -80,7 +80,7 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
                 <!-- Vidéo 4 : Teaser Duras -->
                 <div class="col-12 col-md-4 fade-in">
                     <div class="video-card">
-                        <video controls preload="metadata" playsinline>
+                        <video controls preload="none" playsinline>
                             <source src="media/aftermovie_wicked.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture vidéo.
                         </video>
@@ -90,7 +90,7 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
                 <!-- Vidéo 5 : Baurech -->
                 <div class="col-12 col-md-4 fade-in">
                     <div class="video-card">
-                        <video controls preload="metadata" playsinline>
+                        <video controls preload="none" playsinline>
                             <source src="media/teaser_duras.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture vidéo.
                         </video>
@@ -100,7 +100,7 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
                 <!-- Vidéo 6 : VF Insta -->
                 <div class="col-12 col-md-4 fade-in">
                     <div class="video-card">
-                        <video controls preload="metadata" playsinline>
+                        <video controls preload="none" playsinline>
                             <source src="media/desert_point.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la lecture vidéo.
                         </video>
@@ -117,6 +117,38 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
     <!-- ========== ANIMATIONS AU SCROLL (Intersection Observer) ========== -->
     <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+        // Charge les métadonnées + affiche la 1ère frame quand la vidéo devient visible
+        const allVideos = document.querySelectorAll('video');
+        const thumbnailObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    if (video.preload === 'none') {
+                        video.preload = 'metadata';
+                        video.addEventListener('loadedmetadata', function () {
+                            video.currentTime = 0.001;
+                        }, { once: true });
+                        video.load();
+                    }
+                    thumbnailObserver.unobserve(video);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        allVideos.forEach(function (video) {
+            thumbnailObserver.observe(video);
+        });
+
+        // Une seule vidéo joue à la fois
+        allVideos.forEach(function (video) {
+            video.addEventListener('play', function () {
+                allVideos.forEach(function (other) {
+                    if (other !== video) other.pause();
+                });
+            });
+        });
+
         const animatedElements = document.querySelectorAll('.fade-in');
 
         const observer = new IntersectionObserver(function (entries) {
