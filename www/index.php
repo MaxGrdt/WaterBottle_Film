@@ -57,7 +57,7 @@ $meta_description = 'WaterBottle Film — Vidéaste professionnel spécialisé d
 
                 <!-- Photo de profil -->
                 <div class="col-12 col-md-5 text-center fade-in slide-in-left">
-                    <img src="media/photo_profil.png" 
+                    <img src="media/photo_profil.webp" 
                          alt="Photo de profil — WaterBottle Film" 
                          class="about-img img-fluid">
                 </div>

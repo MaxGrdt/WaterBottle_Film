@@ -49,61 +49,49 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
 
                 <!-- Vidéo 1 : Aftermovie -->
                 <div class="col-12 col-md-4 fade-in">
-                    <div class="video-card">
-                        <video controls preload="none" playsinline>
-                            <source src="media/aftermovie_ny.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la lecture vidéo.
-                        </video>
+                    <div class="video-card video-lazy" data-video="media/aftermovie_ny.mp4">
+                        <img src="media/aftermovie_ny.webp" alt="Aftermovie NY" class="video-thumb" style="width:100%;cursor:pointer;">
+                        <div class="play-btn"></div>
                     </div>
                 </div>
 
-                <!-- Vidéo 2 : Boiler -->
+                <!-- Vidéo 2 : Baurech -->
                 <div class="col-12 col-md-4 fade-in">
-                    <div class="video-card">
-                        <video controls preload="none" playsinline>
-                            <source src="media/baurech.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la lecture vidéo.
-                        </video>
+                    <div class="video-card video-lazy" data-video="media/baurech.mp4">
+                        <img src="media/baurech.webp" alt="Baurech" class="video-thumb" style="width:100%;cursor:pointer;">
+                        <div class="play-btn"></div>
                     </div>
                 </div>
 
-                <!-- Vidéo 3 : Maroc -->
+                <!-- Vidéo 3 : Boiler -->
                 <div class="col-12 col-md-4 fade-in">
-                    <div class="video-card">
-                        <video controls preload="none" playsinline>
-                            <source src="media/boiler.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la lecture vidéo.
-                        </video>
+                    <div class="video-card video-lazy" data-video="media/boiler.mp4">
+                        <img src="media/boiler.webp" alt="Boiler" class="video-thumb" style="width:100%;cursor:pointer;">
+                        <div class="play-btn"></div>
                     </div>
                 </div>
 
-                <!-- Vidéo 4 : Teaser Duras -->
+                <!-- Vidéo 4 : Aftermovie Wicked -->
                 <div class="col-12 col-md-4 fade-in">
-                    <div class="video-card">
-                        <video controls preload="none" playsinline>
-                            <source src="media/aftermovie_wicked.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la lecture vidéo.
-                        </video>
+                    <div class="video-card video-lazy" data-video="media/aftermovie_wicked.mp4">
+                        <img src="media/aftermovie_wicked.webp" alt="Aftermovie Wicked" class="video-thumb" style="width:100%;cursor:pointer;">
+                        <div class="play-btn"></div>
                     </div>
                 </div>
 
-                <!-- Vidéo 5 : Baurech -->
+                <!-- Vidéo 5 : Teaser Duras -->
                 <div class="col-12 col-md-4 fade-in">
-                    <div class="video-card">
-                        <video controls preload="none" playsinline>
-                            <source src="media/teaser_duras.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la lecture vidéo.
-                        </video>
+                    <div class="video-card video-lazy" data-video="media/teaser_duras.mp4">
+                        <img src="media/teaser_duras.webp" alt="Teaser Duras" class="video-thumb" style="width:100%;cursor:pointer;">
+                        <div class="play-btn"></div>
                     </div>
                 </div>
 
-                <!-- Vidéo 6 : VF Insta -->
+                <!-- Vidéo 6 : Desert Point -->
                 <div class="col-12 col-md-4 fade-in">
-                    <div class="video-card">
-                        <video controls preload="none" playsinline>
-                            <source src="media/desert_point.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la lecture vidéo.
-                        </video>
+                    <div class="video-card video-lazy" data-video="media/desert_point.mp4">
+                        <img src="media/desert_point.webp" alt="Desert Point" class="video-thumb" style="width:100%;cursor:pointer;">
+                        <div class="play-btn"></div>
                     </div>
                 </div>
 
@@ -114,43 +102,82 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
 
     <?php require_once(__DIR__ . '/footer.php'); ?>
 
-    <!-- ========== ANIMATIONS AU SCROLL (Intersection Observer) ========== -->
+    <!-- ========== LAZY VIDEO LOADER & ANIMATIONS ========== -->
+    <style>
+    .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 64px;
+        height: 64px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+    .play-btn::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 28px solid #fff;
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+        margin-left: 8px;
+    }
+    .video-card {
+        position: relative;
+        overflow: hidden;
+        background: #000;
+        min-height: 200px;
+    }
+    .video-thumb {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    </style>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-
-        // Charge les métadonnées + affiche la 1ère frame quand la vidéo devient visible
-        const allVideos = document.querySelectorAll('video');
-        const thumbnailObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    const video = entry.target;
-                    if (video.preload === 'none') {
-                        video.preload = 'metadata';
-                        video.addEventListener('loadedmetadata', function () {
-                            video.currentTime = 0.001;
-                        }, { once: true });
-                        video.load();
-                    }
-                    thumbnailObserver.unobserve(video);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        allVideos.forEach(function (video) {
-            thumbnailObserver.observe(video);
-        });
-
-        // Une seule vidéo joue à la fois
-        allVideos.forEach(function (video) {
-            video.addEventListener('play', function () {
-                allVideos.forEach(function (other) {
+        // Lazy load video on click
+        document.querySelectorAll('.video-lazy').forEach(function(card) {
+            card.addEventListener('click', function() {
+                if (card.querySelector('video')) return; // Already loaded
+                var videoSrc = card.getAttribute('data-video');
+                var video = document.createElement('video');
+                video.setAttribute('controls', '');
+                video.setAttribute('playsinline', '');
+                video.setAttribute('autoplay', '');
+                video.style.width = '100%';
+                var source = document.createElement('source');
+                source.src = videoSrc;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                // Remove image and play button
+                card.querySelectorAll('img, .play-btn').forEach(function(el){ el.remove(); });
+                card.appendChild(video);
+                // Pause other videos
+                document.querySelectorAll('.video-lazy video').forEach(function(other) {
                     if (other !== video) other.pause();
                 });
             });
         });
 
-        const animatedElements = document.querySelectorAll('.fade-in');
+        // Une seule vidéo joue à la fois
+        document.addEventListener('play', function(e) {
+            if (e.target.tagName === 'VIDEO') {
+                document.querySelectorAll('.video-lazy video').forEach(function(other) {
+                    if (other !== e.target) other.pause();
+                });
+            }
+        }, true);
 
+        // Animations au scroll
+        const animatedElements = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -159,7 +186,6 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
                 }
             });
         }, { threshold: 0.1 });
-
         animatedElements.forEach(function (el) {
             observer.observe(el);
         });
