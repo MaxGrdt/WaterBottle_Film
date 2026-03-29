@@ -162,6 +162,13 @@ ul li {
 
 // ----- Icônes réseaux sociaux (footer) -----
 footer {
+    .footer-logos .footer-logo-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+    }
+
     a {
         .bi-instagram,
         .bi-linkedin {

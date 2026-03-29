@@ -151,6 +151,12 @@ nav ul li a:hover {
 }
 
 /* ----- Icônes réseaux sociaux (footer) ----- */
+.footer-logos .footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
 footer a .bi-instagram,
 footer a .bi-linkedin {
   display: inline-block;
@@ -244,4 +250,27 @@ input[type=email].touched:not(:focus):invalid {
 
 body {
     padding-top: 70px; /* adapte à la hauteur réelle de ta navbar */
+}
+
+/* Footer responsive social/phrase */
+.footer-social-container {
+  flex-direction: column;
+}
+.footer-logos {
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .footer-social-container {
+    flex-direction: row;
+    align-items: center;
+  }
+  .footer-logos {
+    margin-bottom: 0;
+  }
+}
+/* Footer style: Courier, petit, espacé */
+.footer-courier {
+  font-family: Courier, 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.005em;
 }
