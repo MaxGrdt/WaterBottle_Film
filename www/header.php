@@ -57,6 +57,16 @@ $meta_canonical   = $meta_canonical   ?? ('https://' . $_SERVER['HTTP_HOST'] . '
     }
     </script>
 
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZ2WP96G1G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JZ2WP96G1G');
+    </script>
+
     <!-- Préchargement de la page Portfolio depuis l'accueil -->
     <?php if (basename($_SERVER['PHP_SELF']) === 'index.php'): ?>
     <link rel="prefetch" href="portfolio.php" as="document">

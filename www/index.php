@@ -5,7 +5,7 @@
    ============================================================ */
 
 $meta_title       = 'Accueil — WaterBottle Film';
-$meta_description = 'WaterBottle Film — Vidéaste professionnel spécialisé dans la réalisation audiovisuelle, le montage vidéo et la production de contenus créatifs.';
+$meta_description = 'WaterBottle Film — Vidéaste professionnel à Langon spécialisé dans la réalisation audiovisuelle, le montage vidéo et la production de contenus créatifs.';
 ?>
 <?php require_once(__DIR__ . '/header.php'); ?>
 

@@ -4,8 +4,8 @@
    6 vidéos verticales organisées en 2 rangées de 3
    ============================================================ */
 
-$meta_title       = 'Portfolio — WaterBottle Film';
-$meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, clips, teasers et captations vidéo. Des réalisations audiovisuelles créatives et professionnelles.';
+$meta_title       = 'Portfolio vidéaste à Langon — WaterBottle Film';
+$meta_description = 'Découvrez le portfolio vidéaste de WaterBottle Film : aftermovies, clips, teasers et captations vidéo. Des réalisations audiovisuelles créatives et professionnelles.';
 ?>
 <?php require_once(__DIR__ . '/header.php'); ?>
 
@@ -103,44 +103,6 @@ $meta_description = 'Découvrez le portfolio de WaterBottle Film : aftermovies, 
     <?php require_once(__DIR__ . '/footer.php'); ?>
 
     <!-- ========== LAZY VIDEO LOADER & ANIMATIONS ========== -->
-    <style>
-    .play-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 64px;
-        height: 64px;
-        background: rgba(0,0,0,0.5);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
-    }
-    .play-btn::after {
-        content: '';
-        display: block;
-        width: 0;
-        height: 0;
-        border-left: 28px solid #fff;
-        border-top: 18px solid transparent;
-        border-bottom: 18px solid transparent;
-        margin-left: 8px;
-    }
-    .video-card {
-        position: relative;
-        overflow: hidden;
-        background: #000;
-        min-height: 200px;
-    }
-    .video-thumb {
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-    </style>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Lazy load video on click
