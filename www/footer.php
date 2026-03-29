@@ -67,7 +67,7 @@
 
         <div class="footer-social-container text-center p-2 d-flex flex-column flex-md-row justify-content-center gap-2 gap-md-4 align-items-center">
             <div class="footer-logos d-flex justify-content-center gap-4 mb-2 mb-md-0">
-                <a href="https://www.instagram.com/ermitagerecord/?next=%2F" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram">
+                <a href="https://www.instagram.com/waterbottlefilm/" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram">
                     <i class="ms-0 bi bi-instagram fs-1 text-white"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/max-gourdet-31176b3b1" data-bs-toggle="tooltip" data-bs-placement="top" title="Linkedin">
@@ -75,7 +75,7 @@
                 </a>
             </div>
             <p class="text-white mb-0 footer-courier ps-0 ps-md-5">
-                Designed and developed by <strong>Max Gourdet</strong>
+                Designed and developed by <a href="https://maxgourdet.fr/" target="_blank" rel="noopener" class="text-white text-decoration-none"><strong>Max Gourdet</strong></a>
             </p>
         </div>
 
