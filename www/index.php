@@ -65,7 +65,8 @@ $meta_description = 'WaterBottle Film — Vidéaste professionnel à Langon spé
                 <!-- Texte À propos -->
                 <div class="col-12 col-md-7 fade-in slide-in-right">
                     <h1 class="fontwhite fs-3 fw-semibold mb-3 text-center">WaterBottle Film</h1>
-                    <p class="fontwhite texte">
+                    <hr class="section-divider">
+                    <p class="fontwhite texte pt-3">
                         Max, ingénieur de formation, j'ai développé au fil de mon parcours une approche à la fois technique et créative de l'image. En parallèle de mes études, j'ai découvert la vidéo, un univers qui m'a immédiatement passionné. J'aime raconter des histoires, capter des instants authentiques et expérimenter de nouvelles formes visuelles pour donner du sens et de l'émotion à chaque projet.
                         <br><br>
                         Grand amateur de sports à sensations fortes, je trouve une source d'inspiration particulière dans ces univers dynamiques et intenses. J'aime y exprimer ma créativité, en mettant en valeur l'énergie, le mouvement et l'engagement qu'ils véhiculent.
