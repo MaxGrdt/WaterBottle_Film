@@ -38,9 +38,9 @@ $meta_description = 'Contactez WaterBottle Film pour discuter de votre projet vi
     <section>
         <div class="container text-center">
 
-            <h1 class="fontwhite texte text-center pt-0 pb-1 fs-5 fw-normal">Basé à Langon, à 30 min de Bordeaux :</h1>
-            
-            <div class="row pb-4 pb-md-0 justify-content-center">
+            <h1 class="fontwhite texte text-center pt-0 pb-1 fs-5 fw-normal pb-2">Basé à Langon, à 30 min de Bordeaux :</h1>
+            <hr class="section-divider">
+            <div class="row pb-4 pb-md-0 justify-content-center pt-3">
                 <div class="col-12 col-md-10 col-lg-8 col-xl-7">
                     <div class="ratio ratio-16x9">
 

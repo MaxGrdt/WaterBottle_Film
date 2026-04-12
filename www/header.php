@@ -67,6 +67,8 @@ $meta_canonical   = $meta_canonical   ?? ('https://' . $_SERVER['HTTP_HOST'] . '
         gtag('config', 'G-JZ2WP96G1G');
     </script>
 
+    <script src="script.js" defer></script>
+
     <!-- Préchargement de la page Portfolio depuis l'accueil -->
     <?php if (basename($_SERVER['PHP_SELF']) === 'index.php'): ?>
     <link rel="prefetch" href="portfolio.php" as="document">

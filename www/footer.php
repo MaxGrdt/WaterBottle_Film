@@ -8,8 +8,9 @@
 
         <!-- Titre du formulaire -->
         <div class="titre_formulaire ps-4 pe-4 text-center pt-3">
-            <h1 class="fontwhite pt-0 pt-md-4 fs-3 fw-semibold">Formulaire de contact</h1>
-            <h2 class="fontwhite fs-6 fw-normal">Pour me parler de votre projet, toutes questions ou renseignement merci de me contacter via ce formulaire :</h2>
+            <h1 class="fontwhite pt-0 pt-md-4 fs-3 fw-semibold pb-3">Formulaire de contact</h1>
+            <hr class="section-divider">
+            <h2 class="fontwhite fs-6 fw-normal pt-3">Pour me parler de votre projet, toutes questions ou renseignement merci de me contacter via ce formulaire :</h2>
         </div>
 
         <!-- Zone d'affichage du résultat du formulaire (AJAX) -->

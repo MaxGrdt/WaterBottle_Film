@@ -208,19 +208,59 @@ nav > div > div:first-child > a:hover {
   transform: scale(1.05);
 }
 
-/* ----- Champs de formulaire (animation focus) ----- */
+/* ----- Trait de séparation (section-divider) ----- */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: #007bff;
+  border: none;
+  border-radius: 3px;
+  margin: 1.5rem auto;
+}
+
+/* Trait séparateur sous titre */
+.section-divider {
+  border: none;
+  border-top: 3px solid white;
+  width: 100px;
+  margin: 0 auto;
+}
+
+/* ----- Champs de formulaire ----- */
+.form-control {
+  background-color: #3a3a3a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.form-control::placeholder {
+  color: #ffffff;
+}
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: white;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  color: #fff;
+}
+
+.form-control.error {
+  background: #b20a37;
+  border: 2px solid #b20a37;
+  color: #fff;
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
 input[type=text],
 input[type=email],
 input[type=tel],
 textarea.form-control {
-  transition: border-width 0.2s ease;
-}
-input[type=text]:focus,
-input[type=email]:focus,
-input[type=tel]:focus,
-textarea.form-control:focus {
-  border-width: 3px;
-  border-color: #007bff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 /* ----- Validation email (style erreur après interaction) ----- */
@@ -228,17 +268,6 @@ input[type=email].touched:not(:focus):invalid {
   background: #b20a37;
   border: 2px solid #b20a37;
   color: #fff;
-  animation: headshake 100ms cubic-bezier(0.4, 0.1, 0.6, 0.9);
-  animation-iteration-count: 2;
-}
-
-@keyframes headshake {
-  25% {
-    transform: translateX(1%);
-  }
-  75% {
-    transform: translateX(-1%);
-  }
 }
 
 /* ----- Google Maps (angles arrondis) ----- */
@@ -305,4 +334,24 @@ body {
   font-family: Courier, 'Courier New', monospace;
   font-size: 0.75rem;
   letter-spacing: 0.005em;
+}
+
+/* ----- Soulignement animé sur le lien Max Gourdet (footer) ----- */
+.footer-courier a {
+  position: relative;
+  display: inline-block;
+}
+.footer-courier a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  background: currentColor;
+  transition: left 0.4s ease, right 0.4s ease;
+}
+.footer-courier a:hover::after {
+  left: 0;
+  right: 0;
 }

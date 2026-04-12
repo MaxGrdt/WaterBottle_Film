@@ -232,17 +232,47 @@ footer {
     }
 }
 
-// ----- Champs de formulaire (animation focus) -----
+// ----- Trait de séparation (section-divider) -----
+.section-divider {
+    width: 60px;
+    height: 3px;
+    background: $primary-color;
+    border: none;
+    border-radius: 3px;
+    margin: 1.5rem auto;
+}
+
+// ----- Champs de formulaire -----
+.form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.35);
+    }
+
+    &:focus {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+        color: #fff;
+    }
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
 input[type="text"], 
 input[type="email"], 
 input[type="tel"],
 textarea.form-control {
-    transition: border-width 0.2s ease;
-    
-    &:focus {
-        border-width: 3px;
-        border-color: $primary-color;
-    }
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 // ----- Validation email (style erreur après interaction) -----
