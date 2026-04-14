@@ -250,6 +250,8 @@ nav > div > div:first-child > a:hover {
   background: #b20a37;
   border: 2px solid #b20a37;
   color: #fff;
+  animation: headshake 100ms cubic-bezier(0.4, 0.1, 0.6, 0.9);
+  animation-iteration-count: 2;
 }
 
 textarea.form-control {
