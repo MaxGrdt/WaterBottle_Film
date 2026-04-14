@@ -25,6 +25,7 @@ $meta_description = 'WaterBottle Film — Vidéaste professionnel à Langon spé
             <ul class="d-flex me-3 me-md-4 gap-3 gap-md-4 list-unstyled align-items-center mb-0">
                 <li><a class="fontwhite" href="#a-propos">À propos</a></li>
                 <li><a class="fontwhite" href="portfolio.php">Portfolio</a></li>
+                <li><a class="fontwhite" href="faq.php">FAQ</a></li>
                 <li><a class="fontwhite" href="contact.php">Contact</a></li>
             </ul>
 

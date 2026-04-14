@@ -27,6 +27,7 @@ $meta_description = 'Découvrez le portfolio vidéaste de WaterBottle Film : aft
             <ul class="d-flex me-3 me-md-4 gap-3 gap-md-4 list-unstyled align-items-center mb-0">
                 <li><a class="fontwhite" href="index.php#a-propos">À propos</a></li>
                 <li><a class="fontwhite active" href="portfolio.php">Portfolio</a></li>
+                <li><a class="fontwhite" href="faq.php">FAQ</a></li>
                 <li><a class="fontwhite" href="contact.php">Contact</a></li>
             </ul>
 

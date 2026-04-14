@@ -357,3 +357,58 @@ body {
   left: 0;
   right: 0;
 }
+
+/* ----- FAQ : Accordéon personnalisé ----- */
+.faq-accordion .accordion-item {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px !important;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+.faq-accordion .accordion-button {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-family: Futura, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  box-shadow: none;
+  padding: 1rem 1.25rem;
+  transition: background 0.3s ease;
+}
+.faq-accordion .accordion-button:not(.collapsed) {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  box-shadow: none;
+}
+.faq-accordion .accordion-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.faq-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+.faq-accordion .accordion-button::after {
+  filter: invert(1);
+}
+.faq-accordion .accordion-body {
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: Futura, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.faq-accordion .accordion-body ul {
+  padding-left: 1.2rem;
+}
+.faq-accordion .accordion-body ul li {
+  margin-bottom: 0.3rem;
+}
+.faq-section h2 {
+  text-decoration: none;
+}
+.faq-section h2 .bi {
+  color: rgba(255, 255, 255, 0.6);
+}
